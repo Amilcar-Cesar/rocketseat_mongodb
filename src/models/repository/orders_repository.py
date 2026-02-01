@@ -61,3 +61,11 @@ class OrdersRepository:
             {"_id": ObjectId("6973c79d38f9e89ad952e08b")}, # Filtros
             {"$inc": { "itens.pizza.quantidade": 10}} # Edição
         )
+
+    def delete_registry(self):
+        collection = self.__db_connection.get_collection(self.__colletion_name)
+        collection.delete_one({"_id": ObjectId("6973c79d38f9e89ad952e08b")})
+
+    def delete_many_registries(self):
+        collection = self.__db_connection.get_collection(self.__colletion_name)
+        collection.delete_many({"itens.refrigerante": {"$exists": True}})
