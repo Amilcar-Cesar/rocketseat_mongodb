@@ -84,9 +84,24 @@ def test_select_many_with_or_filter():
         print(doc)
         print()
 
+@pytest.mark.skip(reason="interação com o banco")
 def test_select_by_object_id():
     orders_repository = OrdersRepository(conn)
     object_id = "697fce57c82238c2d3ec25c2"
     response = orders_repository.select_by_object_id(object_id)
     print()
     print(response)
+
+@pytest.mark.skip(reason="interação com o banco")
+def test_edit_registry():
+    orders_repository = OrdersRepository(conn)
+    orders_repository.edit_registry()
+
+@pytest.mark.skip(reason="interação com o banco")
+def test_edit_many_registry():
+    orders_repository = OrdersRepository(conn)
+    orders_repository.edit_many_registries()
+
+def test_edit_registry_with_increment():
+    orders_repository = OrdersRepository(conn)
+    orders_repository.edit_registry_with_increment()
